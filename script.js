@@ -36,4 +36,4 @@ function showFeedback(message, type = 'info') {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Portafolio de Evidencias cargado y listo.");
-});git 
+});
