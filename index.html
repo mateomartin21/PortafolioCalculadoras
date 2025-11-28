@@ -20,26 +20,9 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        /* Estilo para mensajes de feedback */
-        #feedback-message {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem;
-            border-radius: 4px;
-            color: white;
-            font-weight: 600;
-            z-index: 1000;
-            transition: opacity 0.3s ease;
-            opacity: 0;
-            pointer-events: none;
-        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen p-4 sm:p-8">
-
-    <!-- Mensaje de Feedback (para reemplazar alerts/confirms) -->
-    <div id="feedback-message"></div>
 
     <!-- Encabezado Principal del Portafolio -->
     <header class="text-center mb-10">
@@ -48,9 +31,6 @@
         </h1>
         <p class="text-xl text-gray-600 mt-2">
             Actividad #19: Proyectos HTML/CSS/JS del Curso
-        </p>
-        <p class="text-sm text-gray-500 mt-1">
-            Alumno: Mateo Martin | Profesor: Jorge Pedrozo | Grupo: 1-A
         </p>
         <hr class="mt-4 border-t-2 border-blue-200 w-24 mx-auto">
     </header>
@@ -61,79 +41,79 @@
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <!-- Tarjeta de Actividad #2: Visualizador de la Recta Numérica -->
+            <!-- Tarjeta de Actividad #2 -->
             <a href="actividades/actividad02/index.html" class="card block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100">
                 <div class="flex items-center space-x-4">
                     <span class="text-blue-500 text-3xl font-bold">02</span>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800">Visualizador Recta Numérica</h3>
-                        <p class="text-sm text-gray-500">Clasificación y representación de números.</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Números Complejos</h3>
+                        <p class="text-sm text-gray-500">Introducción a JS y estructuras básicas.</p>
                     </div>
                 </div>
             </a>
 
-            <!-- Tarjeta de Actividad #4: PLACEHOLDER (No subida) -->
-            <div class="card p-6 bg-yellow-50 rounded-xl shadow-lg border border-yellow-200 opacity-60">
+            <!-- Tarjeta de Actividad #4 -->
+            <a href="actividades/actividad04/index.html" class="card block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100">
                 <div class="flex items-center space-x-4">
-                    <span class="text-yellow-600 text-3xl font-bold">04</span>
+                    <span class="text-blue-500 text-3xl font-bold">04</span>
                     <div>
                         <h3 class="text-lg font-semibold text-gray-800">Forma Polar a Exponencial</h3>
-                        <p class="text-sm text-gray-500 italic">PENDIENTE: Archivo no subido.</p>
+                        <p class="text-sm text-gray-500">Conversión matemática interactiva.</p>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <!-- Tarjeta de Actividad #6: Expresiones Algebraicas (Conversor) -->
+            <!-- Tarjeta de Actividad #6 -->
             <a href="actividades/actividad06/index.html" class="card block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100">
                 <div class="flex items-center space-x-4">
                     <span class="text-blue-500 text-3xl font-bold">06</span>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800">Conversor Expresiones</h3>
-                        <p class="text-sm text-gray-500">Lenguaje natural a algebraico y viceversa.</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Expresiones Algebraicas</h3>
+                        <p class="text-sm text-gray-500">Manejo y simplificación de términos.</p>
                     </div>
                 </div>
             </a>
 
-            <!-- Tarjeta de Actividad #8: Calculadora de Operaciones (Variables) -->
+            <!-- Tarjeta de Actividad #8 -->
             <a href="actividades/actividad08/index.html" class="card block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100">
                 <div class="flex items-center space-x-4">
                     <span class="text-blue-500 text-3xl font-bold">08</span>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800">Calculadora de Variables</h3>
-                        <p class="text-sm text-gray-500">Evaluación de expresiones con variables.</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Calculadora Operaciones</h3>
+                        <p class="text-sm text-gray-500">Calculadora con múltiples funciones.</p>
                     </div>
                 </div>
             </a>
             
-            <!-- Tarjeta de Actividad #10: Productos Notables -->
+            <!-- Tarjeta de Actividad #10 -->
             <a href="actividades/actividad10/index.html" class="card block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100">
                 <div class="flex items-center space-x-4">
                     <span class="text-blue-500 text-3xl font-bold">10</span>
                     <div>
                         <h3 class="text-lg font-semibold text-gray-800">Productos Notables</h3>
-                        <p class="text-sm text-gray-500">Cálculo numérico y algebraico con fórmulas.</p>
+                        <p class="text-sm text-gray-500">Demostración interactiva de fórmulas.</p>
                     </div>
                 </div>
             </a>
 
-            <!-- Tarjeta de Actividad #12: División Sintética (Factorización) -->
+            <!-- Tarjeta de Actividad #12 -->
             <a href="actividades/actividad12/index.html" class="card block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100">
                 <div class="flex items-center space-x-4">
                     <span class="text-blue-500 text-3xl font-bold">12</span>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800">División Sintética</h3>
-                        <p class="text-sm text-gray-500">Algoritmo de Ruffini para polinomios.</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Factorización</h3>
+                        <p class="text-sm text-gray-500">Herramienta para factorizar expresiones.</p>
                     </div>
                 </div>
             </a>
             
-            <!-- Tarjeta de Actividad #14: Ecuaciones de 1er Grado (Despeje) -->
+            <!-- Tarjeta de Actividad #14 -->
             <a href="actividades/actividad14/index.html" class="card block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100">
                 <div class="flex items-center space-x-4">
                     <span class="text-blue-500 text-3xl font-bold">14</span>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800">Ecuaciones Lineales</h3>
-                        <p class="text-sm text-gray-500">Resolución y despeje simbólico de fórmulas.</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Ecuaciones de 1er Grado</h3>
+                        <p class="text-sm text-gray-500">Resolución de ecuaciones lineales.</p>
                     </div>
                 </div>
             </a>
