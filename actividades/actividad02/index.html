@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Visualizador de la Recta Numérica - Fundamentos de Álgebra</title>
+
+<!-- Script global -->
+<script src="../../js/script_global.js"></script>
+
 <style>
 /* ==================== RESET BÁSICO Y TIPOGRAFÍA ==================== */
 * {
@@ -45,7 +49,7 @@ p {
     text-align: center;
 }
 
-/* ==================== CONTROLES Y FORMULARIOS ==================== */
+/* ==================== CONTROLES ==================== */
 .controls {
     background-color: rgba(20, 20, 20, 0.8);
     border-radius: 12px;
@@ -93,7 +97,7 @@ button:hover {
     box-shadow: 0 0 20px #ff2ae0, 0 0 30px #00eaff;
 }
 
-/* ==================== NÚMEROS PREDEFINIDOS ==================== */
+/* ==================== PRESET ==================== */
 .preset-section {
     margin-top: 20px;
 }
@@ -115,7 +119,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* ==================== RECTA NUMÉRICA ==================== */
+/* ==================== RECTA ==================== */
 .number-line-container {
     border-radius: 15px;
     padding: 25px;
@@ -160,7 +164,7 @@ button:hover {
     text-shadow: 0 0 5px #00eaff;
 }
 
-/* ==================== PUNTOS EN LA RECTA ==================== */
+/* ==================== PUNTOS ==================== */
 .number-point {
     position: absolute;
     width: 20px;
@@ -230,7 +234,7 @@ button:hover {
     box-shadow: 0 0 12px #00eaff;
 }
 
-/* ==================== CALCULADORA DE DISTANCIAS ==================== */
+/* ==================== CALCULADORA ==================== */
 .distance-btn {
     width: 100%;
     padding: 14px;
@@ -263,131 +267,190 @@ button:hover {
     .input-group input { max-width: 100%; }
     .info-panels { grid-template-columns: 1fr; }
 }
+
+/* ==================== BOTÓN REGRESO ==================== */
+#return-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 9999px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#return-btn:hover {
+    background-color: #1e40a5;
+    transform: scale(1.05);
+}
+#return-btn svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
 </style>
 </head>
 <body>
+
+<a href="../../index.html" id="return-btn">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+    </svg>
+    Menú Principal
+</a>
+
 <div class="container">
 <h1>Visualizador de la Recta Numérica</h1>
 <p>Tecnológico de Software • Fundamentos de Álgebra • 1° Cuatrimestre 2025</p>
 <p><b>Alumno:</b> Mateo Martin • <b>Profesor:</b> Jorge Pedrozo • <b>Grupo:</b> 1-A</p>
 
 <div class="controls">
-  <div class="input-group">
-    <label for="numberInput">Ingresa un número:</label>
-    <input type="text" id="numberInput" placeholder="Ejemplo: 3, -2.5, √2, π, e">
-  </div>
-  <button onclick="addNumber()">Agregar a la recta</button>
-  <button onclick="clearPoints()">Limpiar</button>
+    <div class="input-group">
+        <label for="numberInput">Ingresa un número:</label>
+        <input type="text" id="numberInput" placeholder="Ejemplo: 3, -2.5, √2, π, e">
+    </div>
+    <button onclick="addNumber()">Agregar a la recta</button>
+    <button onclick="clearPoints()">Limpiar</button>
 </div>
 
 <div class="preset-section">
-  <h3>Números predefinidos:</h3>
-  <button class="preset-btn" onclick="addPresetNumber('√2')">√2</button>
-  <button class="preset-btn" onclick="addPresetNumber('√3')">√3</button>
-  <button class="preset-btn" onclick="addPresetNumber('π')">π</button>
-  <button class="preset-btn" onclick="addPresetNumber('e')">e</button>
-  <button class="preset-btn" onclick="addPresetNumber('φ')">φ</button>
+    <h3>Números predefinidos:</h3>
+    <button class="preset-btn" onclick="addPresetNumber('√2')">√2</button>
+    <button class="preset-btn" onclick="addPresetNumber('√3')">√3</button>
+    <button class="preset-btn" onclick="addPresetNumber('π')">π</button>
+    <button class="preset-btn" onclick="addPresetNumber('e')">e</button>
+    <button class="preset-btn" onclick="addPresetNumber('φ')">φ</button>
 </div>
 
 <div class="number-line-container">
-  <h2>Recta Numérica</h2>
-  <div id="numberLine" class="number-line">
-    <div class="line"></div>
-  </div>
+    <h2>Recta Numérica</h2>
+    <div id="numberLine" class="number-line">
+        <div class="line"></div>
+    </div>
 </div>
 
 <div class="info-panels">
-  <div class="classification-panel">
-    <h3>Clasificación de Números</h3>
-    <ul>
-      <li><span class="legend-color naturals"></span> Naturales (ℕ)</li>
-      <li><span class="legend-color integers"></span> Enteros (ℤ)</li>
-      <li><span class="legend-color rationals"></span> Racionales (ℚ)</li>
-      <li><span class="legend-color irrationals"></span> Irracionales (𝕀)</li>
-    </ul>
-  </div>
+    <div class="classification-panel">
+        <h3>Clasificación de Números</h3>
+        <ul>
+            <li><span class="legend-color naturals"></span> Naturales (ℕ)</li>
+            <li><span class="legend-color integers"></span> Enteros (ℤ)</li>
+            <li><span class="legend-color rationals"></span> Racionales (ℚ)</li>
+            <li><span class="legend-color irrationals"></span> Irracionales (𝕀)</li>
+        </ul>
+    </div>
 
-  <div class="points-panel">
-    <h3>Puntos en la Recta</h3>
-    <div id="pointsList"></div>
-  </div>
+    <div class="points-panel">
+        <h3>Puntos en la Recta</h3>
+        <div id="pointsList"></div>
+    </div>
 
-  <div class="distance-calculator">
-    <h3>Calculadora de Distancias</h3>
-    <div class="custom-select" id="pointA-container"></div>
-    <div class="custom-select" id="pointB-container"></div>
-    <button class="distance-btn" onclick="calculateDistance()">Calcular distancia</button>
-    <div id="distanceResult"></div>
-  </div>
+    <div class="distance-calculator">
+        <h3>Calculadora de Distancias</h3>
+        <div class="custom-select" id="pointA-container"></div>
+        <div class="custom-select" id="pointB-container"></div>
+        <button onclick="calculateDistance()">Calcular distancia</button>
+        <div id="distanceResult"></div>
+    </div>
 </div>
 </div>
 
 <script>
-// ==================== VARIABLES GLOBALES ====================
 let points = [];
 const numberLine = document.getElementById("numberLine");
 const pointsList = document.getElementById("pointsList");
 
-// ==================== FUNCIONES DE NÚMEROS ====================
 function parseNumber(input) {
     input = input.trim();
     if (input === "π") return Math.PI;
     if (input === "e") return Math.E;
     if (input === "φ") return (1 + Math.sqrt(5)) / 2;
-    if (input.startsWith("√")) return Math.sqrt(parseFloat(input.slice(1)));
+    if (input.startsWith("√")) {
+        const v = parseFloat(input.slice(1));
+        return isNaN(v) ? NaN : Math.sqrt(v);
+    }
     return parseFloat(input);
 }
+
 function classifyNumber(num) {
-    if (Number.isInteger(num) && num > 0) return "naturals";
-    if (Number.isInteger(num)) return "integers";
-    if (!Number.isInteger(num)) return "rationals";
-    return "irrationals";
+    if (Math.abs(num - Math.round(num)) < 1e-9) {
+        num = Math.round(num);
+        return num > 0 ? "naturals" : "integers";
+    }
+    const irr = [Math.PI, Math.E, (1 + Math.sqrt(5)) / 2];
+    if (irr.some(i => Math.abs(num - i) < 1e-9)) return "irrationals";
+    return "rationals";
 }
 
-// ==================== AGREGAR NÚMEROS ====================
 function addNumber() {
     const input = document.getElementById("numberInput").value;
     const value = parseNumber(input);
-    if (isNaN(value)) { alert("Número no válido"); return; }
+
+    if (isNaN(value)) {
+        try { showFeedback("Número no válido", "error"); }
+        catch { console.warn("showFeedback no está definido."); }
+        return;
+    }
+
     points.push({ value, label: input, type: classifyNumber(value) });
     renderPoints();
 }
+
 function addPresetNumber(num) {
     document.getElementById("numberInput").value = num;
     addNumber();
 }
+
 function clearPoints() {
     points = [];
     renderPoints();
 }
 
-// ==================== RENDERIZADO ====================
 function renderPoints() {
-    numberLine.querySelectorAll(".number-point,.tick,.tick-label").forEach(el => el.remove());
+    numberLine.querySelectorAll(".number-point,.tick,.tick-label").forEach(e => e.remove());
     pointsList.innerHTML = "";
-    const min = Math.min(...points.map(p => p.value), -10);
-    const max = Math.max(...points.map(p => p.value), 10);
+
+    const current = points.length ? points : [{ value: 0, label: "0", type: classifyNumber(0) }];
+
+    const min = Math.min(...current.map(p => p.value), -5);
+    const max = Math.max(...current.map(p => p.value), 5);
+    const range = max - min;
+    const lineLen = 90;
+
     for (let i = Math.floor(min); i <= Math.ceil(max); i++) {
-        const pos = ((i - min) / (max - min)) * 90 + 5;
+        const pos = ((i - min) / range) * lineLen + 5;
         const tick = document.createElement("div");
         tick.className = "tick";
         tick.style.left = pos + "%";
         numberLine.appendChild(tick);
+
         const label = document.createElement("div");
         label.className = "tick-label";
         label.style.left = pos + "%";
         label.textContent = i;
         numberLine.appendChild(label);
     }
-    points.forEach((p, idx) => {
-        const pos = ((p.value - min) / (max - min)) * 90 + 5;
+
+    current.forEach(p => {
+        const pos = ((p.value - min) / range) * lineLen + 5;
         const pt = document.createElement("div");
         pt.className = "number-point " + p.type;
         pt.style.left = pos + "%";
+
         const lbl = document.createElement("div");
         lbl.className = "point-label";
         lbl.textContent = p.label;
         pt.appendChild(lbl);
+
         numberLine.appendChild(pt);
 
         const item = document.createElement("div");
@@ -397,18 +460,18 @@ function renderPoints() {
     });
 }
 
-// ==================== DISTANCIAS ====================
 function calculateDistance() {
     if (points.length < 2) {
         document.getElementById("distanceResult").innerHTML = "Agrega al menos dos puntos.";
         return;
     }
-    const a = points[0].value;
-    const b = points[1].value;
-    const dist = Math.abs(a - b);
-    document.getElementById("distanceResult").innerHTML = `Distancia: <b>${dist.toFixed(3)}</b>`;
+    const dist = Math.abs(points[0].value - points[1].value);
+    document.getElementById("distanceResult").innerHTML =
+        `Distancia: <b>${dist.toFixed(3)}</b>`;
 }
+
+window.onload = renderPoints;
 </script>
+
 </body>
 </html>
-

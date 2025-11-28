@@ -23,7 +23,6 @@ body {
 
 .container {
     background: rgba(25, 25, 25, 0.9);
-    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.07);
     padding: 50px;
     border-radius: 20px;
@@ -240,6 +239,35 @@ button:active {
     box-shadow: 0 0 8px rgba(155, 89, 182, 0.3);
     outline: none;
 }
+/* ==================== BOTÓN REGRESO ==================== */
+#return-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 9999px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#return-btn:hover {
+    background-color: #1e40a5;
+    transform: scale(1.05);
+}
+#return-btn svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
 </style>
 
 <script>
@@ -259,6 +287,14 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
 </head>
 <body>
+    <a href="../../index.html" id="return-btn">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+    </svg>
+    Menú Principal
+</a>
+
     <div class="container">
         <h1>Calculadora Simbólica de Ecuaciones</h1>
     <h3>MATEO MARTIN 1-A</p>
