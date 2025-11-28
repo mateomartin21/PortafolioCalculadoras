@@ -1,4 +1,3 @@
-
 /* Estilo para los elementos del encabezado */
 header h1, header p {
     font-family: 'Inter', sans-serif;
@@ -14,7 +13,269 @@ header h1, header p {
 
 /* Estilo para los botones de las actividades */
 .activity-button {
-    /* Asegura que los botones tengan un buen tamaño táctil */
     min-height: 44px;
     min-width: 44px;
+}:root {
+  /* Fondo */
+  --bg-dark: #0a0f1f;
+  --bg-global: radial-gradient(circle at top right, #0f172a, #020617 60%);
+  --bg-card: rgba(20, 26, 42, 0.9); /* Darker card background */
+  
+  /* Acentos y Colores Primarios */
+  --accent-main: #00eaff; /* Neon Cyan/Blue */
+  --accent-secondary: #ff2ae0; /* Neon Magenta/Violet */
+  --accent-success: #00ff9d; /* Neon Green for success/positive */
+  --accent-warning: #fbbf24; /* Neon Yellow for warnings */
+  
+  /* Texto y Bordes */
+  --text-primary: #f8fafc;
+  --text-secondary: #9ca3af;
+  --border-color: rgba(56, 189, 248, 0.3);
+  
+  /* Sombras y Efectos */
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 0 35px rgba(0, 238, 255, 0.2);
+
+}
+/* ==================== ESTILOS DE LA RECTA NUMÉRICA (ACTIVIDAD 02) ==================== */
+
+.number-line-container {
+  /* Se usó un fondo y borde de tarjeta para la unificación */
+  border-radius: 15px;
+  padding: 25px;
+  background-color: var(--bg-card); /* Fondo oscuro */
+  box-shadow: 0 6px 20px rgba(0, 255, 200, 0.4);
+  margin-bottom: 25px;
+}
+
+.number-line {
+  width: 100%;
+  height: 120px;
+  position: relative;
+  background-color: #111; /* Fondo de la recta */
+  border-radius: 12px;
+  border: 2px solid var(--accent-main); /* Borde neón */
+  margin: 25px 0;
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 6px;
+  /* Degradado vibrante unificado */
+  background: linear-gradient(to right, var(--accent-secondary), var(--accent-main));
+  border-radius: 4px;
+  box-shadow: 0 0 12px var(--accent-main), 0 0 20px var(--accent-secondary);
+}
+
+.tick {
+  position: absolute;
+  width: 3px;
+  height: 25px;
+  background-color: var(--text-primary);
+  top: 38px;
+  box-shadow: 0 0 5px var(--accent-main);
+}
+
+.tick-label {
+  position: absolute;
+  top: 70px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-main);
+  transform: translateX(-50%);
+  text-shadow: 0 0 5px var(--accent-main);
+}
+
+/* Puntos en la recta (Colores unificados) */
+.number-point.naturals { background-color: #00ff95; box-shadow: 0 0 15px #00ff95; }
+.number-point.integers { background-color: var(--accent-main); box-shadow: 0 0 15px var(--accent-main); }
+.number-point.rationals { background-color: var(--accent-secondary); box-shadow: 0 0 15px var(--accent-secondary); }
+.number-point.irrationals { background-color: #ffd700; box-shadow: 0 0 15px #ffd700; }
+
+.point-label {
+  background-color: rgba(0,0,0,0.8);
+  color: var(--text-primary);
+  box-shadow: 0 0 8px var(--accent-main);
+}
+
+.distance-result {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #141a2a; /* Fondo de tarjeta más específico */
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--accent-success); /* Éxito para resultados */
+  box-shadow: 0 0 12px var(--accent-main);
+  margin-top: 15px;
+}
+/* ==================== FIN ESTILOS ACTIVIDAD 02 ==================== */
+
+/* BOTÓN DE REGRESO (Consistente) */
+#return-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#return-btn:hover {
+  background-color: #1e40a5;
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .converter-grid, .info-panels, .results {
+    grid-template-columns: 1fr !important;
+  }
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ==================== 1. RESET Y BASE ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Importar la fuente Poppins y Orbitron (para títulos) */
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@600;800&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-global);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  background: var(--bg-card);
+  border-radius: 18px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== 2. ENCABEZADOS ==================== */
+h1 {
+  font-family: 'Orbitron', sans-serif; /* Fuente futurista para título principal */
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 35px;
+  /* Degradado y brillo para el título principal */
+  background: linear-gradient(90deg, var(--accent-main), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px var(--accent-main);
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--accent-main);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h3 {
+  color: var(--accent-warning);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ==================== 3. BOTÓN DE REGRESO (Consistente) ==================== */
+#return-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#return-btn:hover {
+  background-color: #1e40a5;
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+}
+/* ==================== 8. RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  /* Para layouts de cuadrícula de 2 columnas como .converter-grid o .info-panels */
+  .converter-grid, .info-panels, .results {
+    grid-template-columns: 1fr !important;
+  }
+  .input-grid {
+    grid-template-columns: 1fr; /* Columna única en móvil */
+  }
+}
+
+/* ==================== 9. CLASES ESPECÍFICAS ==================== */
+/* Estilo para los puntos en la recta numérica (Actividad 02) */
+.number-point.naturals { background-color: var(--accent-success); box-shadow: 0 0 15px var(--accent-success); }
+.number-point.integers { background-color: var(--accent-main); box-shadow: 0 0 15px var(--accent-main); }
+.number-point.rationals { background-color: var(--accent-secondary); box-shadow: 0 0 15px var(--accent-secondary); }
+.number-point.irrationals { background-color: var(--accent-warning); box-shadow: 0 0 15px var(--accent-warning); }
+
+/* Notas y mensajes didácticos (Actividad 14) */
+.result-box.nota-didactica {
+  background: rgba(251, 191, 36, 0.1);
+  border-left: 4px solid var(--accent-warning);
+  color: var(--accent-warning);
+  font-size: 0.95em;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
 }
