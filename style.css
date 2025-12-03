@@ -1,281 +1,501 @@
-/* Estilo para los elementos del encabezado */
-header h1, header p {
-    font-family: 'Inter', sans-serif;
+/* ==================== 0. VARIABLES CSS (Tema Neón/Futurista) ==================== */
+:root {
+    --bg-dark: #0a0f1f;
+    --bg-global: radial-gradient(circle at top right, #0f172a, #020617 60%);
+    --bg-card: rgba(20, 26, 42, 0.9);
+
+    --accent-main: #00eaff;
+    --accent-secondary: #ff2ae0;
+    --accent-success: #00ff9d;
+    --accent-warning: #fbbf24;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #9ca3af;
+    --border-color: rgba(56, 189, 248, 0.3);
+
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 0 35px rgba(0, 238, 255, 0.2);
 }
 
-/* Estilo para un contenedor de sección común */
-.section-container {
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-}
-
-/* Estilo para los botones de las actividades */
-.activity-button {
-    min-height: 44px;
-    min-width: 44px;
-}:root {
-  /* Fondo */
-  --bg-dark: #0a0f1f;
-  --bg-global: radial-gradient(circle at top right, #0f172a, #020617 60%);
-  --bg-card: rgba(20, 26, 42, 0.9); /* Darker card background */
-  
-  /* Acentos y Colores Primarios */
-  --accent-main: #00eaff; /* Neon Cyan/Blue */
-  --accent-secondary: #ff2ae0; /* Neon Magenta/Violet */
-  --accent-success: #00ff9d; /* Neon Green for success/positive */
-  --accent-warning: #fbbf24; /* Neon Yellow for warnings */
-  
-  /* Texto y Bordes */
-  --text-primary: #f8fafc;
-  --text-secondary: #9ca3af;
-  --border-color: rgba(56, 189, 248, 0.3);
-  
-  /* Sombras y Efectos */
-  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 0 35px rgba(0, 238, 255, 0.2);
-
-}
-/* ==================== ESTILOS DE LA RECTA NUMÉRICA (ACTIVIDAD 02) ==================== */
-
-.number-line-container {
-  /* Se usó un fondo y borde de tarjeta para la unificación */
-  border-radius: 15px;
-  padding: 25px;
-  background-color: var(--bg-card); /* Fondo oscuro */
-  box-shadow: 0 6px 20px rgba(0, 255, 200, 0.4);
-  margin-bottom: 25px;
-}
-
-.number-line {
-  width: 100%;
-  height: 120px;
-  position: relative;
-  background-color: #111; /* Fondo de la recta */
-  border-radius: 12px;
-  border: 2px solid var(--accent-main); /* Borde neón */
-  margin: 25px 0;
-}
-
-.line {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  right: 5%;
-  height: 6px;
-  /* Degradado vibrante unificado */
-  background: linear-gradient(to right, var(--accent-secondary), var(--accent-main));
-  border-radius: 4px;
-  box-shadow: 0 0 12px var(--accent-main), 0 0 20px var(--accent-secondary);
-}
-
-.tick {
-  position: absolute;
-  width: 3px;
-  height: 25px;
-  background-color: var(--text-primary);
-  top: 38px;
-  box-shadow: 0 0 5px var(--accent-main);
-}
-
-.tick-label {
-  position: absolute;
-  top: 70px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent-main);
-  transform: translateX(-50%);
-  text-shadow: 0 0 5px var(--accent-main);
-}
-
-/* Puntos en la recta (Colores unificados) */
-.number-point.naturals { background-color: #00ff95; box-shadow: 0 0 15px #00ff95; }
-.number-point.integers { background-color: var(--accent-main); box-shadow: 0 0 15px var(--accent-main); }
-.number-point.rationals { background-color: var(--accent-secondary); box-shadow: 0 0 15px var(--accent-secondary); }
-.number-point.irrationals { background-color: #ffd700; box-shadow: 0 0 15px #ffd700; }
-
-.point-label {
-  background-color: rgba(0,0,0,0.8);
-  color: var(--text-primary);
-  box-shadow: 0 0 8px var(--accent-main);
-}
-
-.distance-result {
-  padding: 15px;
-  border-radius: 10px;
-  background-color: #141a2a; /* Fondo de tarjeta más específico */
-  font-size: 1.1rem;
-  text-align: center;
-  color: var(--accent-success); /* Éxito para resultados */
-  box-shadow: 0 0 12px var(--accent-main);
-  margin-top: 15px;
-}
-/* ==================== FIN ESTILOS ACTIVIDAD 02 ==================== */
-
-/* BOTÓN DE REGRESO (Consistente) */
-#return-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 9999;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #3b82f6;
-  color: white;
-  border-radius: 9999px;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#return-btn:hover {
-  background-color: #1e40a5;
-  transform: scale(1.05);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
-}
-
-/* Estilos Responsive */
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  .converter-grid, .info-panels, .results {
-    grid-template-columns: 1fr !important;
-  }
-  .input-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* ==================== 1. RESET Y BASE ==================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Importar la fuente Poppins y Orbitron (para títulos) */
+/* Importar fuentes */
 @import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@600;800&display=swap');
 
+/* ==================== 1. RESET BÁSICO Y TIPOGRAFÍA ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg-global);
-  color: var(--text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
-  padding: 30px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: var(--bg-global);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 30px;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px;
-  background: var(--bg-card);
-  border-radius: 18px;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-color);
-  animation: fadeIn 1s ease-in-out;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background: var(--bg-card);
+    border-radius: 18px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    animation: fadeIn 1s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ... (Estilos body, etc.) ... */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background: var(--bg-card);
+    border-radius: 18px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    animation: fadeIn 1s ease-in-out;
+
+    /* --- CONFIGURACIÓN FLEXBOX PARA CENTRAR EL CONTENIDO --- */
+    display: flex; /* Habilita Flexbox */
+    flex-direction: column; /* Contenido apilado verticalmente */
+    align-items: center; /* Centra horizontalmente los elementos internos */
+    /* -------------------------------------------------------- */
 }
 
-/* ==================== 2. ENCABEZADOS ==================== */
-h1 {
-  font-family: 'Orbitron', sans-serif; /* Fuente futurista para título principal */
-  font-size: 2.8rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 35px;
-  /* Degradado y brillo para el título principal */
-  background: linear-gradient(90deg, var(--accent-main), var(--accent-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 10px var(--accent-main);
+/* El header ya queda centrado gracias a align-items: center */
+header {
+    width: 100%; /* Asegura que abarque el ancho completo de .container */
 }
 
 h2 {
-  font-family: 'Poppins', sans-serif;
-  color: var(--accent-main);
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 18px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Poppins', sans-serif;
+    color: var(--accent-main);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.8s ease forwards;
+    animation-delay: 0.3s;
 }
 
 h3 {
-  color: var(--accent-warning);
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+    color: var(--accent-warning);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideUp 0.8s ease forwards;
+    animation-delay: 0.5s;
 }
 
-/* ==================== 3. BOTÓN DE REGRESO (Consistente) ==================== */
+p {
+    font-size: 14px;
+    margin: 5px 0;
+
+    /* Opcional: centrado global del texto */
+    text-align: center;
+
+    color: var(--text-secondary);
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+
+h1:hover,
+h2:hover,
+h3:hover {
+    animation: bounce 0.6s ease;
+    cursor: default;
+}
+
+/* ==================== 3. CONTROLES Y FORMULARIOS ==================== */
+.controls {
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--accent-main);
+}
+
+.input-group input {
+    width: 300px;
+    padding: 8px;
+    border: 2px solid var(--border-color);
+    font-size: 14px;
+    margin-bottom: 10px;
+    background-color: #0d1326;
+    color: var(--text-primary);
+    border-radius: 4px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent-main);
+    box-shadow: 0 0 8px var(--accent-main);
+}
+
+/* ==================== 4. BOTONES ==================== */
+button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid var(--accent-main);
+    background-color: var(--accent-main);
+    color: var(--bg-dark);
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: transparent;
+    color: var(--accent-main);
+    transform: scale(1.08);
+    box-shadow: 0 0 15px var(--accent-main);
+}
+
+button:active {
+    transform: scale(0.95);
+    background-color: var(--bg-card);
+    color: var(--accent-main);
+}
+
+.activity-button {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* ==================== 5. NÚMEROS PREDEFINIDOS ==================== */
+.preset-section {
+    margin-top: 20px;
+    animation: fadeIn 1s ease;
+}
+
+.preset-section p {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.preset-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.preset-btn {
+    padding: 8px 15px;
+    border: 2px solid var(--accent-secondary);
+    background-color: rgba(255, 42, 224, 0.1);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 6px;
+    color: var(--accent-secondary);
+    opacity: 0;
+    transform: translateY(15px);
+    animation: popUp 0.6s ease forwards;
+}
+
+.preset-btn:nth-child(1) { animation-delay: 0.1s; }
+.preset-btn:nth-child(2) { animation-delay: 0.2s; }
+.preset-btn:nth-child(3) { animation-delay: 0.3s; }
+.preset-btn:nth-child(4) { animation-delay: 0.4s; }
+.preset-btn:nth-child(5) { animation-delay: 0.5s; }
+
+.preset-btn:hover {
+    background-color: var(--accent-secondary);
+    color: var(--bg-dark);
+    transform: scale(1.15) rotate(-2deg);
+    transition: all 0.3s ease;
+}
+
+/* ==================== 6. RECTA NUMÉRICA ==================== */
+.number-line-container {
+    border-radius: 15px;
+    padding: 25px;
+    background-color: var(--bg-card);
+    box-shadow: 0 6px 20px rgba(0, 255, 200, 0.4);
+    margin-bottom: 25px;
+    animation: fadeInUp 1s ease;
+}
+
+.number-line {
+    width: 100%;
+    height: 120px;
+    position: relative;
+    background-color: #111;
+    border-radius: 12px;
+    border: 2px solid var(--accent-main);
+    margin: 25px 0;
+    overflow: hidden;
+    animation: borderPulse 3s infinite alternate;
+}
+
+.number-line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 234, 255, 0.2), transparent);
+    animation: shine 3s infinite linear;
+}
+
+.line {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    right: 5%;
+    height: 6px;
+    background: linear-gradient(to right, var(--accent-secondary), var(--accent-main));
+    border-radius: 4px;
+    box-shadow: 0 0 12px var(--accent-main), 0 0 20px var(--accent-secondary);
+}
+
+.tick {
+    position: absolute;
+    width: 3px;
+    height: 25px;
+    background-color: var(--text-primary);
+    top: 38px;
+    box-shadow: 0 0 5px var(--accent-main);
+}
+
+.tick-label {
+    position: absolute;
+    top: 70px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-main);
+    transform: translateX(-50%);
+    text-shadow: 0 0 5px var(--accent-main);
+}
+
+.range-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.range-info small {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* ==================== 7. PUNTOS ==================== */
+.number-point {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 40px;
+    transform: translateX(-50%);
+    border: 2px solid var(--text-primary);
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+    animation: popIn 0.5s ease forwards, pulse 2s infinite ease-in-out;
+}
+
+.number-point.naturals {
+    background-color: var(--accent-success);
+    box-shadow: 0 0 15px var(--accent-success);
+}
+
+.number-point.integers {
+    background-color: var(--accent-main);
+    box-shadow: 0 0 15px var(--accent-main);
+}
+
+.number-point.rationals {
+    background-color: var(--accent-secondary);
+    box-shadow: 0 0 15px var(--accent-secondary);
+}
+
+.number-point.irrationals {
+    background-color: var(--accent-warning);
+    box-shadow: 0 0 15px var(--accent-warning);
+}
+
+.number-point:hover {
+    transform: translateX(-50%) scale(1.3);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.number-point:active {
+    transform: translateX(-50%) scale(0.9);
+}
+
+.point-label {
+    position: absolute;
+    top: -25px;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0,0.8);
+    border: 1px solid var(--accent-main);
+    padding: 2px 4px;
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: var(--text-primary);
+    box-shadow: 0 0 8px var(--accent-main);
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* ==================== 8. PANELES ==================== */
+.info-panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.classification-panel,
+.points-panel,
+.distance-calculator {
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    background-color: var(--bg-card);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpPanel 0.7s ease forwards;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.classification-panel { animation-delay: 0.2s; }
+.points-panel { animation-delay: 0.4s; }
+.distance-calculator { animation-delay: 0.6s; }
+
+.classification-panel:hover,
+.points-panel:hover,
+.distance-calculator:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 20px var(--accent-main);
+}
+
+/* ==================== 9. LEYENDA ==================== */
+.classification-legend {
+    margin-bottom: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text-primary);
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.legend-color.naturals { background-color: var(--accent-success); }
+.legend-color.integers { background-color: var(--accent-main); }
+.legend-color.rationals { background-color: var(--accent-secondary); }
+.legend-color.irrationals { background-color: var(--accent-warning); }
+
+.classification-info h4 {
+    font-size: 14px;
+    margin: 15px 0 10px 0;
+    color: var(--accent-main);
+}
+
+.classification-info ul {
+    margin-left: 20px;
+}
+
+.classification-info li {
+    margin: 5px 0;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+
+
+/* ==================== 11. BOTÓN DE REGRESO (Consistente) ==================== */
 #return-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 9999;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #3b82f6;
-  color: white;
-  border-radius: 9999px;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+    position: fixed; /* Fija la posición en la ventana */
+    top: 30px; /* Separación de la parte superior */
+    right: 30px; /* Separación del lado derecho */
+    z-index: 9999; /* Por encima de otros elementos */
+
+    /* Estilo base */
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 9999px; /* Forma de píldora */
+    text-decoration: none;
+
+    /* Colores y efectos Neón */
+    background-color: var(--accent-secondary); /* Magenta Neón */
+    color: var(--bg-dark); /* Texto oscuro para contraste */
+    border: 2px solid var(--accent-secondary);
+    box-shadow: 0 4px 10px rgba(255, 42, 224, 0.4); /* Sombra suave magenta */
+
+    /* Transiciones */
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #return-btn:hover {
-  background-color: #1e40a5;
-  transform: scale(1.05);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
-}
-/* ==================== 8. RESPONSIVE ==================== */
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  /* Para layouts de cuadrícula de 2 columnas como .converter-grid o .info-panels */
-  .converter-grid, .info-panels, .results {
-    grid-template-columns: 1fr !important;
-  }
-  .input-grid {
-    grid-template-columns: 1fr; /* Columna única en móvil */
-  }
+    background-color: transparent; /* Fondo transparente al hacer hover */
+    color: var(--accent-secondary); /* Texto neón */
+    transform: scale(1.1); /* Crecimiento sutil */
+    box-shadow: 0 0 20px var(--accent-secondary); /* Sombra neón intensa */
+    cursor: pointer;
 }
 
-/* ==================== 9. CLASES ESPECÍFICAS ==================== */
-/* Estilo para los puntos en la recta numérica (Actividad 02) */
-.number-point.naturals { background-color: var(--accent-success); box-shadow: 0 0 15px var(--accent-success); }
-.number-point.integers { background-color: var(--accent-main); box-shadow: 0 0 15px var(--accent-main); }
-.number-point.rationals { background-color: var(--accent-secondary); box-shadow: 0 0 15px var(--accent-secondary); }
-.number-point.irrationals { background-color: var(--accent-warning); box-shadow: 0 0 15px var(--accent-warning); }
-
-/* Notas y mensajes didácticos (Actividad 14) */
-.result-box.nota-didactica {
-  background: rgba(251, 191, 36, 0.1);
-  border-left: 4px solid var(--accent-warning);
-  color: var(--accent-warning);
-  font-size: 0.95em;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 8px;
+#return-btn:active {
+    transform: scale(0.95); /* Efecto de presión */
 }
+
+
+/* ==================== ANIMACIONES ==================== */
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+/* ... (El resto de las animaciones se mantienen) ... */
+/* ==================== ANIMACIONES ==================== */
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes fadeInUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+@keyframes zoomIn { from {opacity:0; transform:scale(0.6);} to {opacity:1; transform:scale(1);} }
+@keyframes slideInLeft { from {opacity:0; transform:translateX(-30px);} to {opacity:1; transform:translateX(0);} }
+@keyframes slideUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+@keyframes slideUpPanel { from {opacity:0; transform:translateY(45px);} to {opacity:1; transform:translateY(0);} }
+@keyframes popUp { from {opacity:0; transform:translateY(20px) scale(0.9);} to {opacity:1; transform:translateY(0) scale(1);} }
+@keyframes popIn { from {opacity:0; transform:scale(0);} to {opacity:1; transform:scale(1);} }
+@keyframes pulse { 0%,100% {transform: translateX(-50%) scale(1);} 50% {transform:translateX(-50%) scale(1.15);} }
+@keyframes shine { 0% {left:-50%;} 100% {left:120%;} }
+@keyframes borderPulse { 0% {box-shadow:0 0 10px var(--accent-main);} 100% {box-shadow:0 0 25px var(--accent-main);} }
+@keyframes bounce { 0%,100% {transform:translateY(0);} 50% {transform:translateY(-6px);} }
